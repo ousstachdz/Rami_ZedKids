@@ -11,9 +11,8 @@ class Prix extends StatefulWidget {
 class _PrixState extends State<Prix> {
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 150,
-      color: Colors.grey[900],
       child: Row(
         children: [
           Flexible(
