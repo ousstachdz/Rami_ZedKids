@@ -2,13 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class Prix extends StatefulWidget {
-  const Prix({Key? key}) : super(key: key);
+  final Function addNewValue;
+  final String title;
+  const Prix(
+      {Key? key, required this.addNewValue(int price), required this.title})
+      : super(key: key);
 
   @override
   _PrixState createState() => _PrixState();
 }
 
 class _PrixState extends State<Prix> {
+  TextEditingController textControl = TextEditingController();
+
+  int previousValue = 0;
+
+  void onChangeHandler() {
+    print(-previousValue);
+    print(int.parse(textControl.value.toString()));
+    setState(() {
+      previousValue = int.parse(textControl.value.toString());
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -17,6 +33,10 @@ class _PrixState extends State<Prix> {
         children: [
           Flexible(
               child: TextField(
+            onChanged: (value) {
+              onChangeHandler;
+            },
+            controller: textControl,
             cursorColor: Colors.yellowAccent[100],
             style: TextStyle(fontSize: 30, color: Colors.yellowAccent[100]),
             decoration: const InputDecoration(

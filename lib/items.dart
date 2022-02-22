@@ -10,13 +10,33 @@ class Item extends StatefulWidget {
 }
 
 class _ItemState extends State<Item> {
+  void _totalProfit(int profit) {
+    setState(() {
+      _totalprofits += profit;
+    });
+  }
+
+  void _totalPrice(int price) {
+    setState(() {
+      _total_Price += price;
+    });
+  }
+
+  int _total_Price = 0;
+  int _totalprofits = 0;
   @override
   Widget build(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: const [
-        Prix(),
-        Prix(),
+      children: [
+        Prix(
+          addNewValue: _totalPrice,
+          title: 'Price',
+        ),
+        Prix(
+          addNewValue: _totalProfit,
+          title: 'Profit',
+        ),
       ],
     );
   }

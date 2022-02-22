@@ -14,20 +14,20 @@ class Result extends StatefulWidget {
 class _ResultState extends State<Result> {
   void addItem() {
     setState(() {
-      all.add(const Item());
+      all.add(Item());
     });
   }
 
   void restItems() {
     setState(() {
-      all = [const Item()];
+      all = [Item()];
     });
   }
 
-  List<Widget> all = [
-    const Item(),
-    const Item(),
-    const Item(),
+  int rowNmbr = 1;
+
+  List<Item> all = [
+    Item(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -67,7 +67,7 @@ class _ResultState extends State<Result> {
               ),
               FloatingActionButton(
                 backgroundColor: Colors.teal[900],
-                onPressed: restItems,
+                onPressed: addItem,
                 child: Icon(
                   Icons.refresh,
                   color: Colors.yellow[100],

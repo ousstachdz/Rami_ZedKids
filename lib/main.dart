@@ -15,9 +15,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int totalSum = 0;
-  int totalprofits = 0;
-  int rowNmbr = 1;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
